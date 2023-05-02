@@ -3,8 +3,16 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=whoiscaleb&label=Profile%20views&color=0e75b6&style=flat" alt="whoiscaleb" /> </p>
 
+# Screenshots: 
+
+
+# Getting Started: 
+[Pitch deck](https://my.visme.co/editor/NlYzaTdnQ1c4VnZUa1FsV1pPQmJCZz09OjrNmEFuFPIy8XdieZM1jaQX/akRicjRWNHFPTjlaV0NmazlISEJvZz09Ojp9HDnAXI-MnQi9E5a4bksS)
+ 
+[Trello Board](https://trello.com/b/YDxYEXII/propertize)
 
 # Getting Started: [Propertize](https://trello.com/b/YDxYEXII/propertize)
+
 
 # Unsolved Problems:
 
