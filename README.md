@@ -11,7 +11,6 @@
  
 [Trello Board](https://trello.com/b/YDxYEXII/propertize)
 
-# Getting Started: [Propertize](https://trello.com/b/YDxYEXII/propertize)
 
 
 # Unsolved Problems:
