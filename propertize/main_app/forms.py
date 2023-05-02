@@ -6,3 +6,4 @@ class PropertyForm(ModelForm):
     model = Property
     fields = ('title', 'price', 'description', 'address', 'bedroom', 'bathroom', 'sqf', 'type', 'lat', 'long', 'images')
     
+    fields = ('title', 'price', 'description', 'address', 'bedroom', 'bathroom', 'sqf', 'type', 'lat', 'long', 'images')
