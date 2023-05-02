@@ -5,12 +5,16 @@
 
 # Screenshots: 
 
+
 # Getting Started: 
- [Pitch deck](https://my.visme.co/editor/NlYzaTdnQ1c4VnZUa1FsV1pPQmJCZz09OjrNmEFuFPIy8XdieZM1jaQX/akRicjRWNHFPTjlaV0NmazlISEJvZz09Ojp9HDnAXI-MnQi9E5a4bksS)
+[Pitch deck](https://my.visme.co/editor/NlYzaTdnQ1c4VnZUa1FsV1pPQmJCZz09OjrNmEFuFPIy8XdieZM1jaQX/akRicjRWNHFPTjlaV0NmazlISEJvZz09Ojp9HDnAXI-MnQi9E5a4bksS)
  
 [Trello Board](https://trello.com/b/YDxYEXII/propertize)
 
-# Unsloved Problems:
+# Getting Started: [Propertize](https://trello.com/b/YDxYEXII/propertize)
+
+
+# Unsolved Problems:
 
 # Future Improvements: 
 
