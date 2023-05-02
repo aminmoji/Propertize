@@ -33,7 +33,6 @@ class Property(models.Model):
     images = models.ImageField(null=False, blank=False, upload_to="images/")
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
-
     def __str__(self):
         return f'{self.title}'
     

@@ -7,16 +7,17 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from .forms import PropertyForm
+from .forms import PropertyForm, ShowingForm
 
 
 # Create your views here.
 def home(request):
-    return HttpResponse('')
+    return HttpResponse('HI')
 
 
 def about(request):
     return render(request, 'about.html')
+
 
 @login_required
 def property_detail(request, property_id):
@@ -24,6 +25,7 @@ def property_detail(request, property_id):
     return render(request, 'properties/detail.html', {
         'property': property
     })
+
 
 def signup(request):
     error_message = ''
@@ -40,12 +42,14 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return redirect(request, 'registration/signup.html', context)
 
+
 @login_required
 def properties_index(request):
     properties = Property.objects.filter(user=request.user)
     return render(request, 'properties/index.html', {
         'properties': properties
     })
+
 
 @login_required
 def add_property(request):
@@ -61,12 +65,23 @@ def add_property(request):
         form = PropertyForm()
     return render(request, 'add_property.html', {'form': form})
 
+
 class PropertyUpdate(LoginRequiredMixin, UpdateView):
   model = Property
   fields = '__all__'
+
 
 class PropertyDelete(LoginRequiredMixin, DeleteView):
   model = Property
   success_url = '/properties/'
 
+
+@login_required
+def add_showing(request, property_id):
+    form = ShowingForm(request.POST)
+    if form.is_valid():
+        new_showing = form.save(commit=False)
+        new_showing.property_id = property_id
+        new_showing.save()
+    return redirect('detail', property_id = property_id)
 
