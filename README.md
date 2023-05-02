@@ -4,9 +4,9 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=whoiscaleb&label=Profile%20views&color=0e75b6&style=flat" alt="whoiscaleb" /> </p>
 
 
-# Getting Started: [Propettize](https://trello.com/b/YDxYEXII/propertize)
+# Getting Started: [Propertize](https://trello.com/b/YDxYEXII/propertize)
 
-# Unsloved Problems:
+# Unsolved Problems:
 
 # Future Improvements: 
 
