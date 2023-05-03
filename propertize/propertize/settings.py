@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'propertize',
 ]
 
 MIDDLEWARE = [
@@ -79,9 +78,9 @@ WSGI_APPLICATION = 'propertize.wsgi.application'
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'whoiscaleb/propcollection',
-        'USER': 'whoiscaleb',
-        'PASSWORD': 'v2_43Zuf_CvCtkpz9e96K6Abjhsm2dL5',
+        'NAME': 'aminmoj/Propertize2',
+        'USER': 'aminmoj',
+        'PASSWORD': 'v2_43kG6_TDyVmhnRCnpUraDCNZ7Umzk',
         'HOST': 'db.bit.io',
         'PORT': '5432',
     }
@@ -135,7 +134,7 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = "accounts.CustomUser"
+AUTH_USER_MODEL = "main_app.CustomUser"
 
-LOGIN_REDIRECT_URL = "index"
-LOGOUT_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
