@@ -12,24 +12,23 @@ PROPERTY_TYPE = (('condo', 'Condominium'),
 class CustomUser(AbstractUser):
     first_name = models.CharField(max_length=15)
     last_name = models.CharField(max_length=25)
-    username = models.CharField(max_length=15)
-    password = models.CharField(max_length=14)
+    username = models.CharField(unique=True)
     email = models.EmailField()
-    phone = models.IntegerField()
+    phone = models.CharField(max_length=15)
 
     def __str__(self):
         return f"{self.first_name}'s username is {self.username}"
 
 
 class Property(models.Model):
-    title = models.CharField(max_length=50, label="Title: ")
-    price = models.IntegerField(label="Price: ")
-    description = models.CharField(max_length=300, label="Description: ")
-    address = models.CharField(max_length=50, label="Adderess: ")
-    bedroom = models.IntegerField(label="No. of Bedrooms: ")
-    bathroom = models.IntegerField(label="No. of Bathrooms: ")
-    sqf = models.IntegerField(label="Area (sqft): ")
-    type = models.CharField(choices=PROPERTY_TYPE, default='condo')
+    title = models.CharField(max_length=50)
+    price = models.IntegerField()
+    description = models.CharField(max_length=300)
+    address = models.CharField(max_length=50)
+    bedroom = models.IntegerField()
+    bathroom = models.IntegerField()
+    sqf = models.IntegerField()
+    type = models.CharField(max_length=15, choices=PROPERTY_TYPE, default=PROPERTY_TYPE[0][0])
     images = models.ImageField(null=False, blank=False, upload_to="images/")
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
