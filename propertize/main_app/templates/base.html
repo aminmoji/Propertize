@@ -12,6 +12,11 @@
       rel=stylesheet
       href= MATERALIZE LINK HERE
     /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
  <script src=""></script>
@@ -22,8 +27,17 @@
         <div class=nav-wrapper>
           <ul>
             <li>
-              <a href=/ class=left brand-logo> Propertize</a>
+              <a href="/" class=left brand-logo> Propertize</a>
             </li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'add_property' %}">Add a Property</a></li>
+            <li><a href="{% url 'index' %}">View All My Properties</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
+          </ul>  
         </div>
       </nav>
     </header>

@@ -13,14 +13,17 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 def home(request):
-    return HttpResponse('HI')
+    properties = Property.objects.all()
+    return render(request, 'home.html', {
+        'properties': properties
+    })
 
 
 def about(request):
     return render(request, 'about.html')
 
 
-@login_required
+
 def property_detail(request, property_id):
     property = Property.objects.get(id=property_id)
     return render(request, 'properties/detail.html', {
@@ -37,7 +40,7 @@ class SignUpView(CreateView):
 # def signup(request):
 #     error_message = ''
 #     if request.method == 'POST':
-#        form = UserCreationForm(request.POST)
+#        form = CustomUserCreationForm(request.POST)
 #        if form.is_valid():
 #            user = form.save()
 #            login(request, user)
@@ -45,9 +48,9 @@ class SignUpView(CreateView):
 #        else:
 #            error_message = 'Invalid Sign Up Attempt, Please Try Again.'
 
-#     form = UserCreationForm()
+#     form = CustomUserCreationForm()
 #     context = {'form': form, 'error_message': error_message}
-#     return redirect(request, 'registration/signup.html', context)
+#     return redirect(request, 'signup.html', context)
 
 
 @login_required
@@ -76,7 +79,7 @@ def add_property(request):
 class PropertyUpdate(LoginRequiredMixin, UpdateView):
   model = Property
   fields = '__all__'
-
+  template_name = "add_property.html"
 
 class PropertyDelete(LoginRequiredMixin, DeleteView):
   model = Property
