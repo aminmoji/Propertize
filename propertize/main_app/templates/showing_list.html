@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<h1>My Scheduled Open Houses</h1>
+
+<div>
+    <table>
+        <th>Property</th>
+        <th>Date</th>
+        <th>Time</th>
+        {% for showing in showings %}
+        <tr>
+            <td><a href="{% url 'detail' showing.property.id %}">{{ showing.property.title }}</a></td>
+            <td>{{ showing.date }}</td>
+            <td>{{ showing.time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+  </a>
+</div>
+{% endblock %}
