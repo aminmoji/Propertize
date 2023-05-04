@@ -2,29 +2,24 @@ from django.forms import ModelForm
 from .models import Property, CustomUser, Showing
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-
-PROPERTY_TYPE = (('condo', 'Condominium'),
-                 ('house', 'House'),
-                 )
+from django.forms.widgets import DateInput, TimeInput
 
 
 class PropertyForm(ModelForm):
-   type = forms.ChoiceField(choices=PROPERTY_TYPE, label='Type of Property')
-  
    class Meta:
         model = Property
-        fields = ('title', 'price', 'description', 'address', 'bedroom', 'bathroom', 'sqf', 'type', 'images')
+        fields = ['title', 'price', 'description', 'address', 'bedroom', 'bathroom', 'sqf', 'type', 'images']
         labels = {
         'title': 'Title', 'price': 'Price', 'description': 'Description', 'address': 'Address', 'bedroom': 'No. of Bedrooms', 'bathroom': 'No. of Bathrooms', 'sqf': 'Area (sqft):', 'type': 'Type of Property', 'images': ''
         }
-        widgets = {
-        'type': forms.Select(attrs={'class': 'form-control'})
-        }
+
+
 
 class ShowingForm(ModelForm):
+   print("showing form")
    class Meta:
       model = Showing
-      fields = ("date",)
+      fields = ['date', 'time']
 
 
 class CustomUserCreationForm(UserCreationForm):
