@@ -13,30 +13,45 @@
         <p>Description: {{ property.description }}</p>
         <p>No. of Bedrooms: {{ property.bedroom }}</p>
         <p>No. of Bathrooms: {{ property.bathroom }}</p>
-        <img src="{{ property.images.url }}" alt="">
+        <p>Contact No.: {{ property.user.phone }}</p>
+        <img src="{{ property.images.url }}" alt="" width="500px">
       </div>
+      {% if property.user.id == request.user.id %}
       <div class="card-action">
         <a href="{% url 'property_update' property.id %}">Edit</a>
         <a href="{% url 'property_delete' property.id %}">Delete</a>
       </div>
-    </div>
-  </div>
-  <div class="col s6">
+</div>
+</div>
+<div class="col s6">
     <form action="{% url 'add_showing' property.id %}" method="post">
         {% csrf_token %} {{ showing_form.as_p }}
         <input type="submit" class="btn" value="Add Showing" />
     </form>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <form action="{% url 'add_to_favorites' property_id=property.id %}" method="post">
+      {% csrf_token %}
+        {% if is_favorite %}  
+        <button type="submit" class="btn" disabled>Added to Favorites</button>
+        {% else %}
+        <button type="submit"class="btn">Add to Favorites</button>
+        {% endif %}
+</button>
+    </form>
+    {% endif %}  
     <table class="striped">
       <thead>
         <tr>
           <th>Date</th>
+          <th>Time</th>
         </tr>
       </thead>
       <tbody>
         {% for showing in property.showing_set.all %}
         <tr>
           <td>{{showing.date}}</td>
-          <td>{{showing.get_showing_display}}</td>
+          <td>{{showing.time}}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -45,14 +60,14 @@
 </div>
 <hr />
 <script>
-   var dateEl = document.getElementById('id_date');
-    M.Datepicker.init(dateEl, {
-    format: 'yyyy-mm-dd',
-    defaultDate: new Date(),
-    setDefaultDate: true,
-    autoClose: true
-  }); 
-  var selectEl = document.getElementById('id_showing');
-  M.FormSelect.init(selectEl);
+  document.addEventListener('DOMContentLoaded', function() {
+    var elem = document.getElementById('id_date');
+    var instances = M.Datepicker.init(elem, options);
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elem = document.getElementById('id_time');
+    var instances = M.Timepicker.init(elem, options);
+  });
 </script>
 {% endblock %}

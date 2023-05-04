@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import AbstractUser
+import datetime
+
 
 
 # Create your models here.
@@ -15,6 +17,7 @@ class CustomUser(AbstractUser):
     username = models.CharField(unique=True)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
+    favorites = models.ManyToManyField('Property', related_name='favorited_by')
 
     def __str__(self):
         return f"{self.first_name}'s username is {self.username}"
@@ -28,7 +31,7 @@ class Property(models.Model):
     bedroom = models.IntegerField()
     bathroom = models.IntegerField()
     sqf = models.IntegerField()
-    type = models.CharField(max_length=15, choices=PROPERTY_TYPE, default=PROPERTY_TYPE[0][0])
+    type = models.CharField(choices=PROPERTY_TYPE, default='condo', max_length=10)
     images = models.ImageField(null=False, blank=False, upload_to="images/")
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
@@ -36,11 +39,12 @@ class Property(models.Model):
         return f'{self.title}'
     
     def get_absolute_url(self):
-        return reverse('', kwargs={'property_id': self.id})
+        return reverse('detail', kwargs={'property_id': self.id})
     
 
 class Showing(models.Model):
-    date = models.DateTimeField('showing date')
+    date = models.DateField(('showing date'), default=datetime.date.today())
+    time = models.TimeField(('showing time'), default=datetime.time(hour=12, minute=0))
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
@@ -53,3 +57,8 @@ class Showing(models.Model):
     class Meta:
      ordering = ['-date']
 
+
+class Favorite(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
