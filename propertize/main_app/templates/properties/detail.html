@@ -13,7 +13,7 @@
         <p>Description: {{ property.description }}</p>
         <p>No. of Bedrooms: {{ property.bedroom }}</p>
         <p>No. of Bathrooms: {{ property.bathroom }}</p>
-        <p>Contact No.: {{ property.user.phone }}</p>
+        <p>Contact Phone #: {{ property.user.phone }}</p>
         <img src="{{ property.images.url }}" alt="" width="500px">
       </div>
       {% if property.user.id == request.user.id %}
