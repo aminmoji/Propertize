@@ -24,6 +24,14 @@ class CustomUser(AbstractUser):
 
 
 class Property(models.Model):
+    title = models.CharField(max_length=50, label="Title: ")
+    price = models.IntegerField(label="Price: ")
+    description = models.CharField(max_length=300, label="Description: ")
+    address = models.CharField(max_length=50, label="Adderess: ")
+    bedroom = models.IntegerField(label="No. of Bedrooms: ")
+    bathroom = models.IntegerField(label="No. of Bathrooms: ")
+    sqf = models.IntegerField(label="Area (sqft): ")
+    type = models.CharField(choices=PROPERTY_TYPE, default='condo', max_length=10, label="Type: ", widget=models.Select(choices=PROPERTY_TYPE))
     title = models.CharField(max_length=50)
     price = models.IntegerField()
     description = models.CharField(max_length=300)
