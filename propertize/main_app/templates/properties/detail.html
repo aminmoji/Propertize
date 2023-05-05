@@ -1,6 +1,6 @@
-
-
 {% extends 'base.html' %} {% block content %}
+{% load static %}
+
 
 <h1>Property Details</h1>
 
@@ -9,8 +9,8 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">{{ property.title }}</span>
-        <p>Price: {{ property.price }}</p>
-        <p>Description: {{ property.description }}</p>
+        <p class="price">{{ property.price }}</p>
+        <p class="description">{{ property.description }}</p>
         <p>No. of Bedrooms: {{ property.bedroom }}</p>
         <p>No. of Bathrooms: {{ property.bathroom }}</p>
         <p>Contact No.: {{ property.user.phone }}</p>
