@@ -1,20 +1,17 @@
-
 {% extends 'base.html' %} {% block content %}
 
-<h1>Properties</h1>
-{% extends 'base.html' %} {% block content %}
 
-<h1>Property List</h1>
+<h1>My Properties </h1>
 
 {% for property in properties %}
 <div class="card">
   <a href="{% url 'detail' property.id %}">  
     <div class="card-content">
         <span class="card-title">{{ property.title }}</span>
-        <p>Price: {{ property.price }}</p>
-        <p>Description: {{ property.description }}</p>
-        <p>No. of Bedrooms: {{ property.bedroom }}</p>
-        <p>No. of Bathrooms: {{ property.bathroom }}</p>
+        <p class="price">${{ property.price }}</p><p class="bedrooms">{{ property.bedroom }} Bed | {{ property.bathroom }} Bath</p> <p class="bathrooms"></p>
+        <p class="description">{{ property.description }}</p>
+        
+        
         <img src="{{ property.images.url }}" alt="">
     </div>
   </a>

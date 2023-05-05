@@ -8,10 +8,10 @@
   <a href="{% url 'detail' property.id %}">  
     <div class="card-content">
         <span class="card-title">{{ property.title }}</span>
-        <p>Price: {{ property.price }}</p>
-        <p>Description: {{ property.description }}</p>
-        <p>No. of Bedrooms: {{ property.bedroom }}</p>
-        <p>No. of Bathrooms: {{ property.bathroom }}</p>
+        <p class="price">${{ property.price }}</p>
+        <p class="description">{{ property.description }}</p>
+        <p class="bedroom">{{ property.bedroom }} Bedrooms</p>
+        <p class="bathroom">{{ property.bathroom }} Bathrooms</p>
         <img src="{{ property.images.url }}" alt="">
     </div>
   </a>
