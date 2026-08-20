@@ -16,7 +16,6 @@ class PropertyForm(ModelForm):
 
 
 class ShowingForm(ModelForm):
-   print("showing form")
    class Meta:
       model = Showing
       fields = ['date', 'time']

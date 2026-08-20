@@ -1,30 +1,77 @@
-<h1 align="center">Propertize with Amin, Caleb and Connor</h1>
-<h3 align="center">To help with scouting the housing market, our app will take out the middle man in buying a home to have a more genuine relationship between sellers and buyers. Sellers can list their properties with contact info while buyers can favorite the listings they like and get in touch to communicate further.</h3>
+# Propertize
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=whoiscaleb&label=Profile%20views&color=0e75b6&style=flat" alt="whoiscaleb" /> </p>
+**Propertize** is a collaborative Django property marketplace project built by Amin, Caleb, and Connor during boot camp in 2023.
 
-# Screenshots: 
-![image](https://user-images.githubusercontent.com/126698422/236488569-b1efbc74-d5ea-436c-b2cc-8ed3d47311ab.png)
-![image](https://user-images.githubusercontent.com/126698422/236489708-deae7a6e-f626-459e-a094-178da94f9803.png)
+The project explores a direct seller/buyer workflow: sellers can publish property listings and buyers can browse listings, save favorites, and schedule showings.
 
+## Features
 
-# Getting Started: 
-[Pitch deck](https://my.visme.co/view/4d1n9eok-propertize-pitch-deck-presentation)
- 
-[Trello Board](https://trello.com/b/YDxYEXII/propertize)
+- Custom user accounts
+- Property listings
+- Property image uploads
+- Favorite properties
+- Showing/open-house scheduling
+- Seller/buyer-oriented property browsing
 
+## Screenshots
 
+![Propertize screenshot](https://user-images.githubusercontent.com/126698422/236488569-b1efbc74-d5ea-436c-b2cc-8ed3d47311ab.png)
 
-# Unsolved Problems:
+![Propertize screenshot](https://user-images.githubusercontent.com/126698422/236489708-deae7a6e-f626-459e-a094-178da94f9803.png)
 
-# Future Improvements: 
+## Tech stack
 
-* Chat feature for quick questions about the listing
-* Interactive vitrual showing
-* Reviews on users/previous listings
-* Links to surronding things to do such as restaurants, parks, hiking trails etc.
-* Social Media Intergration 
-* Compare multiple properties side-by-side.
+- Python
+- Django 4.2
+- PostgreSQL
+- HTML
+- CSS
+- Materialize CSS
+- Django authentication
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://heroku.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://materializecss.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/prplx/svg-logos/5585531d45d294869c4eaab4d7cf2e9c167710a9/svg/materialize.svg" alt="materialize" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> </p>
+## Original project material
+
+- [Pitch deck](https://my.visme.co/view/4d1n9eok-propertize-pitch-deck-presentation)
+- [Trello board](https://trello.com/b/YDxYEXII/propertize)
+
+## Local setup
+
+```bash
+git clone https://github.com/aminmoji/Propertize.git
+cd Propertize
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+pip install -r requirements.txt
+cp .env.example .env
+```
+
+Export the variables from `.env`, then:
+
+```bash
+cd propertize
+python manage.py migrate
+python manage.py runserver
+```
+
+## Configuration
+
+Database credentials and the Django secret key are not meant to be committed to the repository.
+
+See `.env.example` for the required values.
+
+## Future ideas from the original project
+
+- Direct chat between buyers and sellers
+- Interactive virtual showings
+- User/listing reviews
+- Nearby places and neighborhood information
+- Social-media integration
+- Side-by-side property comparison
+
+## Project status
+
+Historical collaborative portfolio / learning project.
+
+The repository is intentionally kept recognizable as the original team project. Cleanup work focuses on security, reproducibility, documentation, and clear bugs rather than rewriting the application.
